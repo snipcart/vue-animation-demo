@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="prompt">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG path animation with VueJS and TweenLite</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <main id="app" class="chart">
+    <figure class="chart__content">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -25 440 125">
+        <path class="chart__path" :d="`M${path}`"
+          fill="none" stroke="rgba(255, 255, 255, 0.3)"
+          stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <text v-for="([ x, y ]) in path" :x="x - 10" :y="y - 7.5"
+          font-size="10" font-weight="200" fill="currentColor">
+          {{ 100 - (y | 0) + '%' }}
+        </text>
+      </svg>
+
+      <figcaption class="chart__caption">
+        <h1 class="chart__title">SVG path animation with VueJS &amp; TweenLite</h1>
+      </figcaption>
+    </figure>
+  </main>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

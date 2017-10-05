@@ -1,0 +1,55 @@
+@import 'reset';
+
+.chart {
+  height: 100vh;
+  display: flex;
+  color: #36424b;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(rgb(192, 241, 149), rgb(76, 155, 149));
+
+  &__content {
+    width: 100%;
+    max-width: 775px;
+    padding: 0 1.5rem;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::before {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(black, 0.3), rgba(black, 0) 110%);
+    }
+
+    &::after {
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to top, rgba(black, 0.3), rgba(black, 0) 110%);
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  &__caption {
+    left: 50%;
+    top: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, 100%);
+  }
+
+  &__title {
+    font-size: 1.2rem;
+  }
+}
