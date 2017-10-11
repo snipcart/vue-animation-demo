@@ -2,6 +2,7 @@ new Vue({
   el: '#app',
   data() {
     return {
+      modal: false,
       points: { a: -1, b: -1, c: -1, d: -1, e: -1 }
     }
   },
@@ -18,7 +19,6 @@ new Vue({
     setPoint(key) {
       let duration = this.random(3, 5)
       let destination = this.random(0, 100)
-
       this.animatePoint({ key, duration, destination })
     },
 

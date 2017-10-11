@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>SVG path animation with VueJS and TweenLite</title>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 
 <body>
@@ -15,19 +15,40 @@
           stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
 
         <text v-for="([ x, y ]) in path" :x="x - 10" :y="y - 7.5"
-          font-size="10" font-weight="200" fill="currentColor">
+          font-size="11" font-weight="200" fill="currentColor">
           {{ 100 - (y | 0) + '%' }}
         </text>
       </svg>
 
       <figcaption class="chart__caption">
-        <h1 class="chart__title">SVG path animation with VueJS &amp; TweenLite</h1>
+        <h1 class="chart__title">SVG path animation</h1>
+        <h2 class="chart__subtitle">with VueJS &amp; TweenLite</h2>
       </figcaption>
     </figure>
+
+    <button class="modal__open" @click="modal = true">About this pen</button>
+
+    <transition name="modal">
+      <section v-if="modal" class="modal" @click="modal = false">
+        <article class="modal__content" @click.stop>
+          <h4 class="modal__title">For the full tutorial</h4>
+          <h4 class="modal__title">that goes with this pen</h4>
+
+          <h5 class="modal__link" @click="modal = false">
+            <a href="https://snipcart.com/blog/vuejs-transitions-animations" target="_blank">
+              Creating Vue.js Transitions &amp; Animations
+            </a>
+          </h5>
+
+          <button class="modal__close" @click="modal = false">&times;</button>
+        </article>
+      </section>
+    </transition>
   </main>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
-  <script src="js/index.js"></script>
+  <script src="/assets/js/index.js"></script>
 </body>
 </html>
